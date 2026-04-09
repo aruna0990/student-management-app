@@ -118,6 +118,18 @@ function showMessage(text, type) {
     }, 3500);
 }
 
+function handleDeleteStudent(student) {
+    const confirmed = window.confirm(`Delete ${student.name} from the student list?`);
+
+    if (!confirmed) {
+        return;
+    }
+
+    deleteStudent(student.id);
+    renderStudentList(document.getElementById('searchInput').value);
+    showMessage(`Student "${student.name}" deleted successfully.`, 'success');
+}
+
 /**
  * makeField — creates a <p>Label: <span>value</span></p> element using
  * textContent so no user data ever passes through an HTML parser.
@@ -142,12 +154,12 @@ function createStudentCard(student) {
     // Delete button — textContent keeps it safe
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'delete-btn';
-    deleteBtn.title = 'Remove student';
+    deleteBtn.type = 'button';
+    deleteBtn.title = 'Delete student';
     deleteBtn.setAttribute('aria-label', `Delete ${student.name}`);
-    deleteBtn.textContent = '\u2715';
+    deleteBtn.textContent = 'Delete';
     deleteBtn.addEventListener('click', () => {
-        deleteStudent(student.id);
-        renderStudentList(document.getElementById('searchInput').value);
+        handleDeleteStudent(student);
     });
 
     // Student name heading

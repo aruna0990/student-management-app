@@ -192,19 +192,21 @@ h2 {
     position: absolute;
     top: 12px;
     right: 12px;
-    background: none;
-    border: none;
-    font-size: 1rem;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    font-size: 0.8rem;
+    font-weight: 600;
     cursor: pointer;
-    color: #9ca3af;
-    transition: color 0.2s;
-    padding: 2px 6px;
-    border-radius: 4px;
+    color: #b91c1c;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    padding: 6px 10px;
+    border-radius: 999px;
 }
 
 .delete-btn:hover {
-    color: #dc2626;
-    background: #fee2e2;
+    color: #fff;
+    background: #dc2626;
+    border-color: #dc2626;
 }
 
 .empty-message {
